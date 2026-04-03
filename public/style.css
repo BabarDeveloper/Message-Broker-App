@@ -1,0 +1,254 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, "Segoe UI", "Inter", "Helvetica Neue", sans-serif;
+}
+
+body {
+  background: linear-gradient(145deg, #eef2f5 0%, #d9e0e8 100%);
+  min-height: 100vh;
+  padding: 2rem 1.5rem;
+}
+
+.app-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* header */
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  font-size: 2.4rem;
+  background: linear-gradient(135deg, #1a2a3a, #0f2b3d);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: -0.5px;
+}
+
+.header p {
+  color: #2c3e4e;
+  margin-top: 0.5rem;
+  font-weight: 500;
+  background: rgba(255, 255, 240, 0.6);
+  display: inline-block;
+  padding: 0.2rem 1.2rem;
+  border-radius: 40px;
+  backdrop-filter: blur(2px);
+}
+
+/* two column layout */
+.dashboard {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.panel {
+  flex: 1;
+  min-width: 280px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(4px);
+  border-radius: 2rem;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.panel h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1.2rem;
+  border-left: 5px solid #2c7da0;
+  padding-left: 0.8rem;
+  color: #1e2f3a;
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+label {
+  font-weight: 600;
+  color: #1e4a6b;
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 1.2rem;
+  background: white;
+  font-size: 0.95rem;
+  transition: 0.2s;
+  outline: none;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #2c7da0;
+  box-shadow: 0 0 0 3px rgba(44, 125, 160, 0.2);
+}
+
+button {
+  background: #2c7da0;
+  border: none;
+  color: white;
+  font-weight: bold;
+  padding: 0.7rem 1.4rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+button:hover {
+  background: #1f5e7a;
+  transform: translateY(-1px);
+}
+
+.danger-btn {
+  background: #c44536;
+}
+
+.danger-btn:hover {
+  background: #a23426;
+}
+
+.info-card {
+  background: #f0f7fa;
+  border-radius: 1.5rem;
+  padding: 1rem;
+  margin-top: 1.5rem;
+  border-left: 4px solid #2c7da0;
+}
+
+.topic-badge {
+  background: #2c7da0;
+  color: white;
+  padding: 0.2rem 0.8rem;
+  border-radius: 30px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.subscriber-group {
+  background: white;
+  border-radius: 1rem;
+  padding: 0.8rem;
+  margin-top: 0.8rem;
+  border: 1px solid #e2edf2;
+}
+
+.subscriber-key {
+  font-family: monospace;
+  background: #ecfdf5;
+  padding: 0.2rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #0e5e6f;
+}
+
+hr {
+  margin: 1rem 0;
+  border-color: #cbdde6;
+}
+
+.topic-list {
+  max-height: 340px;
+  overflow-y: auto;
+}
+
+.topic-item {
+  background: white;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.8rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.topic-item:hover {
+  transform: translateX(4px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.topic-title {
+  font-weight: 800;
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.subscriber-list {
+  margin-top: 0.6rem;
+  padding-left: 0.5rem;
+  border-left: 2px dashed #9fc9db;
+}
+
+.subscriber-chip {
+  display: inline-block;
+  background: #eef2fc;
+  border-radius: 40px;
+  padding: 0.2rem 0.7rem;
+  margin: 0.2rem 0.3rem;
+  font-size: 0.75rem;
+  font-family: monospace;
+  font-weight: 500;
+}
+
+.publish-area {
+  background: #eef4f8;
+  border-radius: 1.2rem;
+  margin-top: 1rem;
+  padding: 1rem;
+}
+
+.flex-row {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.small-input {
+  flex: 2;
+}
+
+.status-msg {
+  margin-top: 0.8rem;
+  font-size: 0.8rem;
+  background: #fef9e3;
+  padding: 0.4rem 0.8rem;
+  border-radius: 2rem;
+  display: inline-block;
+}
+
+footer {
+  margin-top: 2.5rem;
+  text-align: center;
+  font-size: 0.75rem;
+  color: #3c6578;
+}
+
+.warning {
+  color: #b45309;
+}

@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Topic Broker | Publish-Subscribe with Subscriber Groups</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <div class="header">
+        <h1>📡 Topic Broker · Subscriber Groups</h1>
+        <p>
+          🔑 Key-based subscription | Each subscriber belongs to a unique group
+          per topic
+        </p>
+      </div>
+
+      <div class="dashboard">
+        <!-- LEFT COLUMN: CREATE TOPIC + PUBLISH -->
+        <div class="panel">
+          <h2>📌 1. Create Topic</h2>
+          <div class="form-group">
+            <label>Topic Name (unique)</label>
+            <input
+              type="text"
+              id="topicNameInput"
+              placeholder="e.g., sports/news/weather"
+              autocomplete="off"
+            />
+          </div>
+          <button id="createTopicBtn">➕ Create Topic</button>
+
+          <div class="info-card">
+            <span class="topic-badge">📡 PUBLISH MESSAGE</span>
+            <div class="form-group" style="margin-top: 12px">
+              <label>Target Topic</label>
+              <input type="text" id="publishTopic" placeholder="topic name" />
+            </div>
+            <div class="form-group">
+              <label>Message Content</label>
+              <textarea
+                id="publishMsg"
+                rows="2"
+                placeholder="Your message..."
+              ></textarea>
+            </div>
+            <button id="publishBtn">🚀 Publish to Topic</button>
+            <div id="publishStatus" class="status-msg"></div>
+          </div>
+
+          <div class="info-card">
+            <span class="topic-badge">📋 ALL TOPICS & SUBSCRIBERS</span>
+            <div
+              id="topicsListContainer"
+              class="topic-list"
+              style="margin-top: 12px"
+            >
+              <div style="color: #6b7f8c">Loading topics...</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN: SUBSCRIBE + GROUP MANAGEMENT -->
+        <div class="panel">
+          <h2>🔗 2. Subscribe to Topic</h2>
+          <div class="form-group">
+            <label>Topic to subscribe</label>
+            <input type="text" id="subTopic" placeholder="e.g., news" />
+          </div>
+          <div class="form-group">
+            <label>Subscriber Key (unique per group)</label>
+            <input
+              type="text"
+              id="subscriberKey"
+              placeholder="e.g., client-123, mobile-app, backend-xyz"
+            />
+            <div style="font-size: 0.7rem; margin-top: 4px">
+              ✨ Each key creates a separate subscriber group under the topic
+            </div>
+          </div>
+          <button id="subscribeBtn">📎 Subscribe (create/join group)</button>
+
+          <div class="form-group" style="margin-top: 16px">
+            <label>Unsubscribe (remove specific subscriber group)</label>
+            <div class="flex-row">
+              <input
+                type="text"
+                id="unsubTopic"
+                placeholder="Topic"
+                class="small-input"
+              />
+              <input
+                type="text"
+                id="unsubKey"
+                placeholder="Subscriber Key"
+                class="small-input"
+              />
+              <button id="unsubscribeBtn" class="danger-btn">❌ Remove</button>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <span class="topic-badge"
+              >📬 SUBSCRIPTION MESSAGES (Live per group)</span
+            >
+            <div
+              id="subscriberEvents"
+              style="
+                max-height: 280px;
+                overflow-y: auto;
+                margin-top: 12px;
+                font-size: 0.85rem;
+              "
+            >
+              <div style="color: #2c7da0">
+                ⚡ No messages yet. Subscribe & publish to see real-time group
+                delivery.
+              </div>
+            </div>
+            <button
+              id="clearLogsBtn"
+              style="background: #5f7f8c; margin-top: 10px"
+            >
+              🗑 Clear Logs
+            </button>
+          </div>
+        </div>
+      </div>
+      <footer>
+        💡 Broker concept: Each topic can have multiple subscriber groups
+        (keys). When a message is published, every subscriber group receives a
+        copy.
+        <br />🔐 No user auth — just keys as group identifiers. Click on any
+        topic in left panel to auto-fill forms!
+      </footer>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/client.js"></script>
+  </body>
+</html>
